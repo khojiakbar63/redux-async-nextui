@@ -11,20 +11,15 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
-import './style.scss'
-
-
+import "./style.scss";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = [
-    "Posts",
-    "Profile",
-    "Followers",
-    "Log Out",
-  ];
-
+  const menuItems = ["Posts", "Profile", "Followers", "Log Out"];
+  const logOut = () => {
+    localStorage.removeItem("acc_token");
+  }
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
@@ -39,29 +34,21 @@ export const Header = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <NavLink to="/">
-            Home
-          </NavLink>
+          <NavLink to="/">Home</NavLink>
         </NavbarItem>
         <NavbarItem>
-          <NavLink to="/posts">
-            Posts
-          </NavLink>
+          <NavLink to="/posts">Posts</NavLink>
         </NavbarItem>
         <NavbarItem>
-          <NavLink to="/profile">
-            Profile
-          </NavLink>
+          <NavLink to="/profile">Profile</NavLink>
         </NavbarItem>
         <NavbarItem>
-          <NavLink to="/followers">
-            Followers
-          </NavLink>
+          <NavLink to="/followers">Followers</NavLink>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <NavLink to="/auth">Login</NavLink>
+          <NavLink onClick={logOut} to="/auth">Login</NavLink>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
