@@ -1,0 +1,25 @@
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  
+    p {
+      margin: 0;
+  
+      a {
+        color: #1da1f2;
+        text-decoration: none;
+        margin-left: 10px;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+  
+      a:nth-of-type(2) {
+        color: #3b5998;
+      }
+    }
+  }
+  
